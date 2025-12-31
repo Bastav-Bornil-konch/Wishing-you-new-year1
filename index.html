@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy New Year 2026!</title>
+<style>
+  body{
+    margin:0;
+    font-family:"Comic Sans MS",cursive;
+    background:radial-gradient(circle at top,#182848 0%,#0d1b2a 100%);
+    overflow:hidden;
+    text-align:center;
+    color:#f8f8ff;
+    position:relative;
+    height:100vh;
+  }
+  h1{
+    font-size:3rem;
+    color:#ffd6d6;
+    margin-top:70px;
+    text-shadow:0 0 10px #ff9,0 0 20px #f6a;
+    animation:glowPulse 2s infinite alternate;
+  }
+  @keyframes glowPulse{
+    from{text-shadow:0 0 5px #ff9,0 0 15px #f6a;}
+    to{text-shadow:0 0 20px #ff9,0 0 40px #f6a;}
+  }
+  p{font-size:1.2rem;color:#e0e0ff;}
+
+  /* Stars */
+  .star{
+    position:fixed;
+    width:2px;height:2px;
+    background:white;
+    border-radius:50%;
+    opacity:.8;
+    animation:twinkle 3s ease-in-out infinite;
+  }
+  @keyframes twinkle{0%,100%{opacity:.2;}50%{opacity:1;}}
+
+  /* Snowmen */
+  .snowmen{display:flex;justify-content:center;align-items:center;gap:100px;flex-wrap:wrap;margin-top:20px;}
+  .snowman{cursor:pointer;position:relative;transition:.3s;}
+  .snowman:hover{transform:scale(1.1);}
+  .circle{background:#fff;border-radius:50%;border:2px solid #ccc;}
+  .head{width:60px;height:60px;margin:0 auto;}
+  .body{width:100px;height:100px;margin:-10px auto 0;}
+  .eyes{position:absolute;top:22px;left:50%;transform:translateX(-50%);display:flex;justify-content:space-between;width:22px;}
+  .eyes div{width:8px;height:8px;background:#333;border-radius:50%;}
+  .nose{position:absolute;top:32px;left:50%;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:12px solid orange;}
+  .hat{position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:40px;height:20px;background:#000;border-radius:3px;}
+  .hat::before{content:"";position:absolute;bottom:-5px;left:-10px;width:60px;height:5px;background:#000;border-radius:3px;}
+  .snowman small{display:block;margin-top:5px;color:#ccc;}
+
+  /* Branches */
+  .branches{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-top:25px;}
+  .branch{background:#ffe4e1;color:#333;padding:12px 18px;border-radius:15px;box-shadow:0 2px 5px rgba(0,0,0,.1);cursor:pointer;transition:.3s;}
+  .branch:hover{background:#ffd1dc;transform:translateY(-5px) scale(1.05);}
+
+  /* Snow layers */
+  .snowflake{position:fixed;color:white;top:-10px;font-size:1em;animation:fall linear infinite;pointer-events:none;z-index:1;}
+  .snowflake.large{font-size:18px;animation-duration:6s;}
+  .snowflake.medium{font-size:12px;animation-duration:5s;}
+  .snowflake.small{font-size:8px;animation-duration:4s;}
+  @keyframes fall{to{transform:translateY(100vh);}}
+
+  /* Village */
+  .village{position:fixed;bottom:0;left:0;width:100%;height:140px;background:#e0f7ff;}
+  .house{position:absolute;bottom:0;width:80px;height:60px;background:#ffe9e9;border:2px solid #d6a9a9;border-bottom:none;border-radius:3px;box-shadow:0 0 15px rgba(255,255,204,0.3);}
+  .roof{position:absolute;top:-25px;left:0;width:0;height:0;border-left:40px solid transparent;border-right:40px solid transparent;border-bottom:25px solid #ffb6b6;}
+  .chimney{position:absolute;top:-35px;left:50px;width:10px;height:20px;background:#a0522d;border-radius:2px;}
+  .smoke{position:absolute;top:-45px;left:54px;width:8px;height:8px;background:rgba(255,255,255,0.8);border-radius:50%;animation:smoke 3s ease-in-out infinite;}
+  @keyframes smoke{0%{transform:translateY(0) scale(1);opacity:0.8;}50%{opacity:0.5;}100%{transform:translateY(-60px) scale(1.5);opacity:0;}}
+  .window{position:absolute;width:10px;height:10px;background:rgba(255,255,150,0.9);border-radius:2px;box-shadow:0 0 6px rgba(255,255,200,0.8);animation:glow 2s ease-in-out infinite alternate;}
+  @keyframes glow{from{opacity:0.5;}to{opacity:1;}}
+
+  /* Fireworks */
+  .firework{position:fixed;width:4px;height:4px;border-radius:50%;pointer-events:none;animation:explode 0.8s ease-out forwards;z-index:0;}
+  @keyframes explode{from{opacity:1;transform:scale(1);}to{opacity:0;transform:scale(4);}}
+
+  /* Shooting stars */
+  .shootingStar{
+    position:fixed;width:2px;height:2px;background:white;opacity:0.8;border-radius:50%;transform:rotate(45deg);
+  }
+
+  /* Closing message */
+  #closingMessage{
+    position:absolute;bottom:20px;width:100%;text-align:center;color:#ffd6d6;font-size:1.2rem;text-shadow:0 0 5px #ff9,0 0 10px #f6a;opacity:0;animation:fadeIn 3s forwards 1s;
+  }
+  @keyframes fadeIn{to{opacity:1;}}
+</style>
+</head>
+<body>
+<h1>🎆 Happy New Year 2026, Dear Antara! ☺️ 🎆</h1>
+<p>Under the twinkling stars and gentle snow, may this year glow with joy for you, Dear Antara. 💖❄️</p>
+
+<div class="snowmen">
+  <div class="snowman" onclick="wish('left')">
+    <div class="hat"></div>
+    <div class="circle head"></div>
+    <div class="eyes"><div></div><div></div></div>
+    <div class="nose"></div>
+    <div class="circle body"></div>
+    <small>⛄ Click me!</small>
+  </div>
+  <div class="snowman" onclick="wish('right')">
+    <div class="hat"></div>
+    <div class="circle head"></div>
+    <div class="eyes"><div></div><div></div></div>
+    <div class="nose"></div>
+    <div class="circle body"></div>
+    <small>⛄ Click me!</small>
+  </div>
+</div>
+
+<div class="branches">
+  <div class="branch" onclick="alert('✨ Dear Antara, keep shining and smiling all through 2026! ✨')">Shine Bright 🌟</div>
+  <div class="branch" onclick="alert('💖 Dear Antara, may kindness follow you wherever you go! 💖')">Kindness Magic 💕</div>
+  <div class="branch" onclick="alert('🌈 Dear Antara, new adventures and dreams await you this year! 🌈')">Adventure 🚀</div>
+  <div class="branch" onclick="alert('🌼 Dear Antara, stay happy and hopeful every single day! 🌼')">Stay Positive 😊</div>
+</div>
+
+<div class="village" id="village"></div>
+<div id="closingMessage">💌 With lots of love and warm wishes to Dear Antara — may every day of 2026 be magical! 💖</div>
+
+<audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_16a81f65b2.mp3?filename=music-box-10806.mp3" preload="auto"></audio>
+<button onclick="document.getElementById('bgMusic').play(); this.style.display='none';" style="position:absolute;top:10px;right:10px;padding:8px 12px;background:#ffd6d6;border:none;border-radius:5px;cursor:pointer;">Play Music</button>
+
+<script>
+/* Stars */
+for(let i=0;i<100;i++){
+  const st=document.createElement('div'); st.className='star';
+  st.style.left=Math.random()*100+'vw'; st.style.top=Math.random()*60+'vh';
+  st.style.animationDelay=Math.random()*3+'s'; document.body.appendChild(st);
+}
+
+/* Snow layers */
+for(let i=0;i<40;i++){createSnow('small');}
+for(let i=0;i<25;i++){createSnow('medium');}
+for(let i=0;i<15;i++){createSnow('large');}
+function createSnow(size){
+  const s=document.createElement('div'); s.className='snowflake '+size; s.textContent='❄';
+  s.style.left=Math.random()*100+'vw';
+  document.body.appendChild(s);
+}
+
+/* Village */
+const v=document.getElementById('village');
+for(let i=0;i<6;i++){
+  const h=document.createElement('div'); h.className='house';
+  h.style.left=20+i*110+'px'; h.style.background=`hsl(${10+Math.random()*40},70%,90%)`;
+  const roof=document.createElement('div');roof.className='roof';
+  const chim=document.createElement('div');chim.className='chimney';
+  const smoke=document.createElement('div');smoke.className='smoke';
+  smoke.style.animationDelay=Math.random()*2+'s';
+  for(let w=0;w<3;w++){
+    const win=document.createElement('div');win.className='window';
+    win.style.left=15+w*20+'px'; win.style.top=25+Math.random()*10+'px';
+    h.appendChild(win);
+  }
+  h.append(roof,chim,smoke); v.appendChild(h);
+}
+
+/* Snowman wishes & blink */
+function wish(side){
+  fireworkBurst();
+  blinkSnowman(side);
+  if(side==='left')
+    alert("⛄ Dear Antara, this left snowman sends warm hugs and wishes that 2026 glows with laughter, love, and lovely memories! 💖❄️");
+  else
+    alert("⛄ Dear Antara, the right snowman hopes your 2026 shines brighter than fireworks and fills your heart with endless happiness! 🎇✨");
+}
+function blinkSnowman(side){
+  const index=side==='left'?0:1;
+  const eyes=document.getElementsByClassName('eyes')[index].children;
+  eyes[0].style.height='4px'; eyes[1].style.height='4px';
+  setTimeout(()=>{eyes[0].style.height='8px'; eyes[1].style.height='8px';},300);
+}
+
+/* Fireworks */
+function fireworkBurst(){
+  for(let i=0;i<25;i++){
+    const f=document.createElement('div'); f.className='firework';
+    f.style.left=Math.random()*100+'vw'; f.style.top=Math.random()*60+'vh';
+    f.style.background=`hsl(${Math.random()*360},100%,60%)`; document.body.appendChild(f);
+    setTimeout(()=>f.remove(),800);
+  }
+}
+setInterval(fireworkBurst,4000);
+
+/* Shooting stars */
+setInterval(()=>{
+  const star=document.createElement('div'); star.className='shootingStar';
+  const startX=Math.random()*100; const startY=Math.random()*30;
+  star.style.left=startX+'vw'; star.style.top=startY+'vh';
+  document.body.appendChild(star);
+  let distance=0;
+  const interval=setInterval(()=>{
+    distance+=2; star.style.left=startX+distance+'vw'; star.style.top=startY+distance*0.5+'vh';
+    if(distance>30){star.remove(); clearInterval(interval);}
+  },30);
+},4000);
+</script>
+</body>
+</html>
